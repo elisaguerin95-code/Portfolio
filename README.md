@@ -2,7 +2,7 @@
 
 Site portfolio one-page présentant mon parcours, mes compétences techniques et mes projets en data analyse et data science.
 
-🔗 **Voir le site en ligne :** [à compléter avec le lien GitHub Pages / Netlify]
+🔗 **Voir le site en ligne :** [https://elisaguerin95-code.github.io/Portfolio/PortfolioV8.html]
 
 ---
 
