@@ -1,6 +1,6 @@
 # 👋 Elisa Guérin — Portfolio Data Analyst
 
-Site portfolio one-page présentant mon parcours, mes compétences techniques et mes projets en data analyse et data science.
+Site portfolio one-page présentant mon parcours, mes compétences techniques et mes projets en analyse de données et data science.
 
 🔗 **Voir le site en ligne :** [Portfolio complet](https://elisaguerin95-code.github.io/Portfolio/index.html)
 
@@ -8,7 +8,7 @@ Site portfolio one-page présentant mon parcours, mes compétences techniques et
 
 ## 🙋‍♀️ À propos
 
-Après 10 ans d'expérience en commerce international et e-commerce, dont 6 ans spécialisés dans l'univers des marketplaces, je me forme aujourd'hui aux métiers de la data en licence Data Analyst à la Wild Code School.   
+Après 10 ans d'expérience en commerce international et e-commerce, dont 6 ans spécialisés dans l'univers des marketplaces, je me forme aujourd'hui aux métiers de la data à la Wild Code School.   
 Mon objectif : transformer les données en leviers de décision grâce à une double compétence métier et analytique.
 
 ---
@@ -44,7 +44,7 @@ Mon objectif : transformer les données en leviers de décision grâce à une do
 ## 🚀 Projets présentés
 
 1. 📦 **Tableau de bord logistique** — SQL & Power BI
-2. 🎬 **Système de recommandation de films** — Python, Machine Learning, Power BI
+2. 🎬 **Système de recommandation de films** — Python, Machine Learning, Streamlit
 3. 💡 **Outil de pricing e-commerce** — Machine Learning (en cours)
 
 ---
