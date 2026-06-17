@@ -35,7 +35,7 @@ Après 10 ans d'expertise en e-commerce et commerce international, je me forme a
 
 | Fichier | Description |
 |---|---|
-| `PortfolioV7.html` | Page principale du portfolio |
+| `PortfolioV8.html` | Page principale du portfolio |
 | `projet2-demo.html` | Page d'accès à la démo du projet 2 (système de recommandation de films), avec identifiants de connexion |
 
 ---
