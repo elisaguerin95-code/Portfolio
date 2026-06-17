@@ -2,7 +2,7 @@
 
 Site portfolio one-page présentant mon parcours, mes compétences techniques et mes projets en data analyse et data science.
 
-🔗 **Voir le site en ligne :** [Portfolio complet](https://elisaguerin95-code.github.io/Portfolio/PortfolioV8.html)
+🔗 **Voir le site en ligne :** [Portfolio complet](https://elisaguerin95-code.github.io/Portfolio/index.html)
 
 ---
 
@@ -35,7 +35,7 @@ Après 10 ans d'expertise en e-commerce et commerce international, je me forme a
 
 | Fichier | Description |
 |---|---|
-| `PortfolioV8.html` | Page principale du portfolio |
+| `index.html` | Page principale du portfolio |
 | `projet2-demo.html` | Page d'accès à la démo du projet 2 (système de recommandation de films), avec identifiants de connexion |
 
 ---
