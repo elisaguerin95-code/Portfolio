@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wildflix — Accès démo · Projet 2 · Elisa Guérin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FAF9F6;
+    --ink: #1A1915;
+    --ink-soft: #5A5750;
+    --ink-muted: #9A9790;
+    --accent: #C1633A;
+    --accent-light: #F5E8E1;
+    --border: #E8E6E0;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* ── Top bar ── */
+  .topbar { padding: 1.5rem 0 0; }
+  .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; letter-spacing: 0.04em; color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
+  .back-link:hover { color: var(--accent); }
+  .back-link svg { width: 12px; height: 12px; }
+
+  /* ── Hero ── */
+  .hero { padding: 3.5rem 0 2.5rem; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 1.5rem; }
+  .eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--accent); }
+  h1 { font-family: var(--serif); font-size: clamp(2.4rem, 6vw, 3.4rem); line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 0.9rem; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub { color: var(--ink-soft); font-size: 1.02rem; max-width: 540px; }
+
+  /* ── Ticket d'accès (élément signature) ── */
+  .ticket { margin: 2.5rem 0 3.5rem; display: grid; grid-template-columns: 1fr 200px; background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 24px 48px rgba(26,25,21,0.06); }
+  @media (max-width: 620px) { .ticket { grid-template-columns: 1fr; } }
+
+  .ticket-main { padding: 2rem 2.25rem; }
+  .ticket-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 1.5rem; }
+  .creds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.75rem; }
+  @media (max-width: 480px) { .creds-grid { grid-template-columns: 1fr; } }
+  .cred-card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.1rem; }
+  .cred-role { font-size: 0.74rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+  .cred-row { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; font-size: 0.9rem; padding: 0.2rem 0; }
+  .cred-row + .cred-row { border-top: 1px dashed var(--border); margin-top: 0.4rem; padding-top: 0.5rem; }
+  .cred-k { color: var(--ink-muted); font-size: 0.78rem; }
+  .cred-v { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 0.88rem; background: var(--accent-light); color: var(--ink); padding: 0.15rem 0.5rem; border-radius: 4px; }
+  .copy-btn { background: none; border: none; cursor: pointer; color: var(--ink-muted); padding: 0.2rem; display: flex; transition: color 0.2s; }
+  .copy-btn:hover { color: var(--accent); }
+  .copy-btn svg { width: 14px; height: 14px; }
+  .copy-btn.copied { color: var(--accent); }
+
+  .ticket-note { font-size: 0.82rem; color: var(--ink-muted); }
+
+  .ticket-stub { background: var(--accent); color: var(--white); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; padding: 2rem 1.25rem; text-align: center; position: relative; }
+  .ticket-stub::before { content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 1px; background-image: linear-gradient(var(--cream) 50%, transparent 50%); background-size: 1px 12px; }
+  @media (max-width: 620px) { .ticket-stub::before { display: none; } .ticket-stub { border-top: 1px dashed rgba(255,255,255,0.35); } }
+  .stub-emoji { font-size: 1.8rem; }
+  .stub-app { font-family: var(--serif); font-size: 1.15rem; line-height: 1.2; }
+  .stub-cta { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--white); color: var(--accent); padding: 0.7rem 1.1rem; border-radius: 2px; text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.03em; margin-top: 0.4rem; transition: transform 0.15s; }
+  .stub-cta:hover { transform: translateY(-2px); }
+  .stub-cta svg { width: 11px; height: 11px; }
+
+  /* ── Sections ── */
+  section.block { padding: 2.25rem 0; border-top: 1px solid var(--border); }
+  .block-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.9rem; }
+  h2 { font-family: var(--serif); font-size: 1.5rem; margin-bottom: 0.9rem; }
+  p.body-text { color: var(--ink-soft); font-size: 0.95rem; max-width: 600px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.1rem; }
+  .tag { font-size: 0.73rem; letter-spacing: 0.04em; padding: 0.25rem 0.65rem; background: var(--accent-light); color: var(--accent); border-radius: 2px; font-weight: 500; }
+
+  .how-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.25rem; }
+  @media (max-width: 620px) { .how-grid { grid-template-columns: 1fr; } }
+  .how-card { border: 1px solid var(--border); border-radius: 10px; padding: 1.4rem 1.5rem; background: var(--white); }
+  .how-num { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.6rem; }
+  .how-title { font-family: var(--serif); font-size: 1.05rem; margin-bottom: 0.6rem; }
+  .how-list { font-size: 0.86rem; color: var(--ink-soft); line-height: 1.6; padding-left: 1.1rem; }
+  .how-list li { margin-bottom: 0.3rem; }
+
+  details.tech { margin-top: 1.5rem; }
+  summary { cursor: pointer; font-size: 0.86rem; font-weight: 500; color: var(--ink-soft); list-style: none; display: flex; align-items: center; gap: 0.5rem; }
+  summary::before { content: '+'; color: var(--accent); font-family: var(--serif); font-size: 1.1rem; line-height: 1; width: 16px; }
+  details[open] summary::before { content: '–'; }
+  .tech-content { margin-top: 1.1rem; font-size: 0.87rem; color: var(--ink-soft); }
+  .tech-content table { width: 100%; border-collapse: collapse; margin-bottom: 1.25rem; }
+  .tech-content th, .tech-content td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); font-size: 0.84rem; }
+  .tech-content th { color: var(--ink-muted); font-weight: 500; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.06em; }
+  .tech-content code { font-family: ui-monospace, monospace; background: var(--accent-light); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.82rem; }
+  .tech-content ol { padding-left: 1.2rem; margin-bottom: 1rem; }
+  .tech-content ol li { margin-bottom: 0.4rem; }
+
+  .authors { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+  .author-chip { font-size: 0.82rem; padding: 0.35rem 0.8rem; border: 1px solid var(--border); border-radius: 20px; color: var(--ink-soft); }
+
+  footer { padding: 2.5rem 0 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: var(--ink-muted); }
+  footer a { color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
+  footer a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a href="PortfolioV8.html#projets" class="back-link">
+      <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 6H2M5 2 1 6l4 4"/></svg>
+      Retour au portfolio
+    </a>
+  </div>
+
+  <div class="hero">
+    <p class="eyebrow">Projet 02 · Machine Learning · Streamlit</p>
+    <h1>Accéder à <em>Wildflix</em></h1>
+    <p class="hero-sub">Un système de recommandation de films basé sur un modèle KNN, enrichi avec les données de l'API OMDB. Voici les codes pour tester l'application directement.</p>
+  </div>
+
+  <!-- ── Ticket d'accès ── -->
+  <div class="ticket">
+    <div class="ticket-main">
+      <p class="ticket-label">Identifiants de connexion</p>
+      <div class="creds-grid">
+        <div class="cred-card">
+          <p class="cred-role">Utilisateur</p>
+          <div class="cred-row">
+            <span class="cred-k">Login</span>
+            <span style="display:flex; align-items:center; gap:0.4rem;"><span class="cred-v" id="u-login">utilisateur</span><button class="copy-btn" data-copy="utilisateur" aria-label="Copier le login"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M3 10.5V3a1.5 1.5 0 0 1 1.5-1.5H11"/></svg></button></span>
+          </div>
+          <div class="cred-row">
+            <span class="cred-k">Mot de passe</span>
+            <span style="display:flex; align-items:center; gap:0.4rem;"><span class="cred-v">utilisateurMDP</span><button class="copy-btn" data-copy="utilisateurMDP" aria-label="Copier le mot de passe"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M3 10.5V3a1.5 1.5 0 0 1 1.5-1.5H11"/></svg></button></span>
+          </div>
+        </div>
+        <div class="cred-card">
+          <p class="cred-role">Administrateur</p>
+          <div class="cred-row">
+            <span class="cred-k">Login</span>
+            <span style="display:flex; align-items:center; gap:0.4rem;"><span class="cred-v">root</span><button class="copy-btn" data-copy="root" aria-label="Copier le login"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M3 10.5V3a1.5 1.5 0 0 1 1.5-1.5H11"/></svg></button></span>
+          </div>
+          <div class="cred-row">
+            <span class="cred-k">Mot de passe</span>
+            <span style="display:flex; align-items:center; gap:0.4rem;"><span class="cred-v">rootMDP</span><button class="copy-btn" data-copy="rootMDP" aria-label="Copier le mot de passe"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M3 10.5V3a1.5 1.5 0 0 1 1.5-1.5H11"/></svg></button></span>
+          </div>
+        </div>
+      </div>
+      <p class="ticket-note">Compte de test : identifiants partagés pour la démo, pas de données personnelles à créer.</p>
+    </div>
+    <div class="ticket-stub">
+      <span class="stub-emoji" aria-hidden="true">🎬</span>
+      <span class="stub-app">Wildflix</span>
+      <a href="https://projet-2--systeme-de-recommandation-de-films.streamlit.app/" target="_blank" rel="noopener" class="stub-cta">
+        Lancer l'app
+        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M5 2h5v5"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── Description ── -->
+  <section class="block">
+    <p class="block-label">Le projet</p>
+    <h2>De quoi s'agit-il ?</h2>
+    <p class="body-text">À partir d'un jeu de données de films, le projet récupère des informations enrichies via l'API OMDB (genre, acteurs, réalisateur, note IMDB, affiche), puis entraîne un modèle KNN pour proposer cinq films similaires à celui choisi par l'utilisateur.</p>
+    <div class="tags">
+      <span class="tag">Python</span>
+      <span class="tag">Scikit-learn (KNN)</span>
+      <span class="tag">Pandas</span>
+      <span class="tag">API OMDB</span>
+      <span class="tag">Streamlit</span>
+      <span class="tag">Hugging Face</span>
+    </div>
+  </section>
+
+  <!-- ── Comment ça marche ── -->
+  <section class="block">
+    <p class="block-label">Fonctionnement</p>
+    <h2>Comment ça marche</h2>
+    <div class="how-grid">
+      <div class="how-card">
+        <p class="how-num">En amont</p>
+        <p class="how-title">Préparation des données</p>
+        <ul class="how-list">
+          <li>Import du dataset et création d'un identifiant à partir des liens IMDB</li>
+          <li>Enrichissement via l'API OMDB par lots de 1000 films</li>
+          <li>Nettoyage, filtrage des films, et encodage des genres, acteurs et réalisateurs</li>
+          <li>Entraînement du modèle KNN et export du modèle</li>
+        </ul>
+      </div>
+      <div class="how-card">
+        <p class="how-num">Côté utilisateur</p>
+        <p class="how-title">L'application Streamlit</p>
+        <ul class="how-list">
+          <li>Authentification par identifiants (streamlit-authenticator)</li>
+          <li>Sélection d'un film dans un menu (titre et année)</li>
+          <li>Affichage de l'affiche, du résumé traduit, des acteurs et de la note</li>
+          <li>Recommandation de cinq films similaires, triés par note IMDB</li>
+        </ul>
+      </div>
+    </div>
+
+    <details class="tech">
+      <summary>Détails techniques (structure du repo, installation locale)</summary>
+      <div class="tech-content">
+        <table>
+          <tr><th>Fichier</th><th>Rôle</th></tr>
+          <tr><td><code>preparation_data_projet2.py</code></td><td>Préparation des données et entraînement du modèle ML</td></tr>
+          <tr><td><code>projet2_V2.py</code></td><td>Application Streamlit de recommandation</td></tr>
+          <tr><td><code>bandeau.py</code></td><td>Module d'affichage du bandeau Wildflix</td></tr>
+          <tr><td><code>requirements.txt</code></td><td>Librairies nécessaires</td></tr>
+          <tr><td><code>data_patrickV2.csv</code></td><td>Dataset source</td></tr>
+          <tr><td><code>df_affichage.csv</code></td><td>Dataset léger généré pour l'affichage</td></tr>
+        </table>
+        <p style="margin-bottom: 0.75rem;">Pour exécuter le projet en local :</p>
+        <ol>
+          <li>Installer les dépendances avec <code>pip install -r requirements.txt</code></li>
+          <li>Renseigner une clé API OMDB dans <code>preparation_data_projet2.py</code></li>
+          <li>Lancer l'application avec <code>streamlit run projet2_V2.py</code></li>
+        </ol>
+        <p>Le modèle entraîné et la matrice de features sont hébergés sur Hugging Face et chargés automatiquement par l'application.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ── Auteurs ── -->
+  <section class="block">
+    <p class="block-label">Équipe</p>
+    <h2>Réalisé par</h2>
+    <div class="authors">
+      <span class="author-chip">Cédric C.</span>
+      <span class="author-chip">Claire G.</span>
+      <span class="author-chip">Elisa G.</span>
+      <span class="author-chip">Eloïse G.</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>Wildflix · Licence Data Analyst 2026</span>
+    <a href="https://github.com/elisaguerin95-code/Projet-2--Systeme-de-Recommandation-de-Films" target="_blank" rel="noopener">Voir le repo GitHub →</a>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.copy);
+        btn.classList.add('copied');
+        setTimeout(() => btn.classList.remove('copied'), 1200);
+      } catch (e) { /* clipboard indisponible, pas bloquant */ }
+    });
+  });
+</script>
+</body>
+</html>
