@@ -8,7 +8,7 @@ Site portfolio one-page présentant mon parcours, mes compétences techniques et
 
 ## 🙋‍♀️ À propos
 
-Après 10 ans d'expérience en commerce international et e-commerce, dont 6 ans spécialisés dans l'univers des marketplaces, je me forme aujourd'hui aux métiers de la data en licence Data Analyst à la Wild Code School. 
+Après 10 ans d'expérience en commerce international et e-commerce, dont 6 ans spécialisés dans l'univers des marketplaces, je me forme aujourd'hui aux métiers de la data en licence Data Analyst à la Wild Code School.   
 Mon objectif : transformer les données en leviers de décision grâce à une double compétence métier et analytique.
 
 ---
