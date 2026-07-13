@@ -2,9 +2,9 @@
 
 Site portfolio one-page présentant mon parcours, mes compétences techniques et mes projets en data analyse et data science.
 
-🔗 **Voir le site en ligne :** [(https://elisaguerin95-code.github.io/Portfolio/index.html)]
+🔗 **Voir le site en ligne :** [Portfolio](https://elisaguerin95-code.github.io/Portfolio/index.html)
 
-> 🇬🇧 *This portfolio is also available in English: open [`en.html`](en.html) or use the EN button in the navigation bar.*
+> 🇬🇧 *This portfolio is also available in [English](https://elisaguerin95-code.github.io/Portfolio/en.html), or use the EN button in the navigation bar.*
 
 ---
 
@@ -18,8 +18,8 @@ Après 10 ans d'expertise en e-commerce et commerce international, je me forme a
 
 Le portfolio est disponible en deux langues :
 
-- 🇫🇷 **Français** : [`index.html`](index.html)
-- 🇬🇧 **English** : [`en.html`](en.html)
+- 🇫🇷 **Français** : [elisaguerin95-code.github.io/Portfolio](https://elisaguerin95-code.github.io/Portfolio/index.html)
+- 🇬🇧 **English** : [elisaguerin95-code.github.io/Portfolio/en](https://elisaguerin95-code.github.io/Portfolio/en.html)
 
 Un bouton FR/EN dans la barre de navigation permet de basculer d'une version à l'autre. La page démo du projet 2 (Wildflix) existe également dans les deux langues.
 
